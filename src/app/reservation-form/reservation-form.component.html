@@ -1,33 +1,48 @@
+<app-home></app-home>
+<hr>
+<h3 class="my-5">Create a new reservation</h3>
 <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label>Check-In Date:</label>
-        <input type="date" formControlName="checkInDate">
-        <div *ngIf="reservationForm.get('checkInDate')?.invalid && reservationForm.get('checkInDate')?.touched">Please
-            enter checkIn page</div>
+    <div class="row mb-3">
+        <div class="col">
+            <label class="form-label">Check-In Date:</label>
+            <input class="form-control" type="date" formControlName="checkInDate">
+            <small class="text-danger"
+                *ngIf="reservationForm.get('checkInDate')?.invalid && reservationForm.get('checkInDate')?.touched">Please
+                enter checkIn page</small>
+        </div>
+        <div class="col">
+            <label class="form-label">Check-Out Date:</label>
+            <input class="form-control" type="date" formControlName="checkOutDate">
+            <small
+                *ngIf="reservationForm.get('checkOutDate')?.invalid && reservationForm.get('checkOutDate')?.touched">Please
+                enter checkOutDate page</small>
+        </div>
     </div>
-    <div>
-        <label>Check-Out Date:</label>
-        <input type="date" formControlName="checkOutDate">
-        <div *ngIf="reservationForm.get('checkOutDate')?.invalid && reservationForm.get('checkOutDate')?.touched">Please
-            enter checkOutDate page</div>
+    <div class="row mb-3">
+        <div class="col">
+            <label class="form-label">Guest Name:</label>
+            <input class="form-control" type="text" formControlName="guestName">
+            <small class="text-danger"
+                *ngIf="reservationForm.get('guestName')?.invalid && reservationForm.get('guestName')?.touched">Please
+                enter guestName page</small>
+        </div>
+        <div class="col">
+            <label class="form-label">Email:</label>
+            <input class="form-control" type="email" formControlName="guestEmail">
+            <small class="text-danger"
+                *ngIf="reservationForm.get('guestEmail')?.invalid && reservationForm.get('guestEmail')?.touched">Please
+                enter guestEmail page</small>
+        </div>
     </div>
-    <div>
-        <label>Guest Name:</label>
-        <input type="text" formControlName="guestName">
-        <div *ngIf="reservationForm.get('guestName')?.invalid && reservationForm.get('guestName')?.touched">Please
-            enter guestName page</div>
+    <div class="row mb-3">
+        <div class="col-3">
+            <label class="form-label">Room Number:</label>
+            <input class="form-control" type="number" formControlName="roomNumber">
+            <small class="text-danger"
+                *ngIf="reservationForm.get('roomNumber')?.invalid && reservationForm.get('roomNumber')?.touched">Please
+                enter roomNumber page</small>
+        </div>
     </div>
-    <div>
-        <label>Email:</label>
-        <input type="email" formControlName="guestEmail">
-        <div *ngIf="reservationForm.get('guestEmail')?.invalid && reservationForm.get('guestEmail')?.touched">Please
-            enter guestEmail page</div>
-    </div>
-    <div>
-        <label>Room Number:</label>
-        <input type="number" formControlName="roomNumber">
-        <div *ngIf="reservationForm.get('roomNumber')?.invalid && reservationForm.get('roomNumber')?.touched">Please
-            enter roomNumber page</div>
-    </div>
-    <button type="submit" [disabled]="reservationForm.invalid">Submit</button>
+
+    <button class="btn btn-primary" type="submit" [disabled]="reservationForm.invalid">Submit</button>
 </form>
