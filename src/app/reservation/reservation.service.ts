@@ -15,13 +15,16 @@ export class ReservationService {
   }
   addReservation(reservation: Reservation): void {
     this.reservation.push(reservation);
+    localStorage.setItem("reservations", JSON.stringify(this.reservation));
   }
   deleteReservation(id: string): void {
     let index = this.reservation.findIndex(x => x.id === id);
     this.reservation.splice(index, 1);
+    localStorage.setItem("reservations", JSON.stringify(this.reservation));
   }
   updateReservation(updatedReservation: Reservation): void {
     let index = this.reservation.findIndex(x => x.id === updatedReservation.id);
     this.reservation[index] = updatedReservation;
+    localStorage.setItem("reservations", JSON.stringify(this.reservation));
   }
 }
