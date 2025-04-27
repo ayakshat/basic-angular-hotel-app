@@ -18,6 +18,7 @@ export class ReservationService {
     return this.reservation.find(r => r.id === id);
   }
   addReservation(reservation: Reservation): void {
+    reservation.id = Date.now().toString();
     this.reservation.push(reservation);
     localStorage.setItem("reservations", JSON.stringify(this.reservation));
   }
